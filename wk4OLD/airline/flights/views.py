@@ -19,6 +19,8 @@ def flight(request, flight_id):
         "passengers": passengers,
         "non_passengers": non_passengers
     })
+
+test = {   "bookmarks": ["wwww.cnn.com, www.newegg.com"], "dates": [1,2,3,4,45], "other stuff": ("a","s","f")}
     
 def book(request, flight_id):
 
