@@ -3,6 +3,7 @@ import re
 from django.shortcuts import render, redirect
 
 from . import util
+from .forms import NewPageForm
 
 
 def index(request):
@@ -37,3 +38,18 @@ def search(request):
                 results.append(entry)
         
         return render(request, "encyclopedia/search_results.html", {"search_results": results})
+    
+def newpage(request):
+    context = {}
+    form = NewPageForm(request.POST or None)
+    context['form'] = form
+    if request.method == "POST":
+        if form.is_valid():
+            title=form.changed_data.get("title")
+            body=form.changed_data.get("body")
+            util.save_entry(title, body)
+            return entry(request, title)
+        else:
+            return render(request, "encyclopedia/create_new_page.html")  
+    elif request.method == "GET":
+        return render(request, "encyclopedia/create_new_page.html")  
