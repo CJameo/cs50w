@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+
+    New Page
+
+{% endblock %}
+
+{% block body %}
+<form class="input" action="{% url 'encyclopedia:update' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input class="input" type="text" name="title" placeholder="Title"><br>
+    <textarea placeholder="Enter details of your new entry in markdown format", name="body"></textarea><br>
+    <input type="submit" value="Submit"></input>
+</form>
+{% endblock %}
