@@ -1,6 +1,6 @@
 from django import forms
 
-class NewPageForm(forms.Form):
+class PageForm(forms.Form):
     title=forms.CharField(
         label="title", 
         max_length=50, 
@@ -13,3 +13,8 @@ class NewPageForm(forms.Form):
         min_length=10,
         error_messages = {'required': "Input a valid body"}
         )
+
+class SubmitForm(forms.Form):
+    value=forms.BooleanField(
+        label="value"
+    )

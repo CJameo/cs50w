@@ -7,11 +7,11 @@
 {% endblock %}
 
 {% block body %}
-<form class="newpage" action="{% url 'encyclopedia:newpage' %}" method="post">
+<form class="input" action="{% url 'encyclopedia:update' %}" method="post">
     {% csrf_token %}
     {{ form }}
     <input class="input" type="text" name="title" placeholder="Title"><br>
     <textarea placeholder="Enter details of your new entry in markdown format", name="body"></textarea><br>
-    <input type="submit" value="Submit"></input
+    <input type="submit" value="Submit"></input>
 </form>
 {% endblock %}

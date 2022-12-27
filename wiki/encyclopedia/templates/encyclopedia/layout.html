@@ -19,12 +19,14 @@
                     <a href="{% url 'encyclopedia:index' %}">Home</a>
                 </div>
                 <div>
-                    <a href="{% url 'encyclopedia:newpage' %}">
+                    <a href="{% url 'encyclopedia:update' %}" onclick="this.parentNode.submit()">
                         Create New Page
                     </a>
                 </div>
                 <div>
-                    Random Page
+                    <a href="{% url 'encyclopedia:random' %}" onclick="this.parentNode.submit()">
+                        Random Page
+                    </a>
                 </div>
                 {% block nav %}
                 {% endblock %}
