@@ -71,8 +71,5 @@ def update(request):
 def random(request):
     entries =util.list_entries()
     title=entries[randint(0, len(entries)-1)]
-    return render(request, "encyclopedia/entry.html", {
-        "title": title,
-        "entry": util.get_entry(title)
-    })
+    return entry(request, title)
 
