@@ -41,7 +41,6 @@ def entry(request, title):
 
 def search(request):
     term = request.GET["term"]
-
     if term in util.list_entries():
         return redirect("encyclopedia:entry", title=term)
     else:
